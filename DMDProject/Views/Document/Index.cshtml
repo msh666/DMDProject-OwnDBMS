@@ -1,0 +1,115 @@
+﻿@model IEnumerable<DMDProject.Models.DocumentEntity>
+
+<h2>Documents</h2>
+@using (Html.BeginForm("Search", "Document"))
+{
+<table>
+    <tr>
+        <td>
+            @Html.Label("Title:", new { @class = "control-label" })
+        </td>
+        <td>
+            @Html.TextBox("Title", "", new { @class = "form-control" })
+        </td>
+    </tr> 
+    <tr>
+        <td>
+            @Html.Label("Document type:", new { @class = "control-label" })
+        </td>
+        <td>
+            @Html.TextBox("Document_type", "", new { @class = "form-control" })
+        </td>
+    </tr>   
+    <tr>
+        <td>
+            @Html.Label("Publication year:", new { @class = "control-label" })
+        </td>
+        <td>
+            @Html.TextBox("Year", "", new { @class = "form-control" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            @Html.Label("Keyword:", new { @class = "control-label" })
+        </td>
+        <td>
+            @Html.TextBox("Keyword", "", new { @class = "form-control" })
+        </td>
+    </tr>
+
+</table>
+<input type="submit" value="Search"/>
+}
+<p>
+    @Html.ActionLink("Create New", "Create") 
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Document_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Document_type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Year)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Source_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Volume)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Url)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ee)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keywords)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Document_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Document_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Source_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Volume)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Url)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keywords)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Document_id  }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Document_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Document_id })
+            </td>
+        </tr>
+    }
+</table>

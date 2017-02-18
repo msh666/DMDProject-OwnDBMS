@@ -1,0 +1,97 @@
+﻿@model IEnumerable<DMDProject.Models.DocumentEntity>
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+@foreach (var item in Model)
+{
+        <dt>
+            @Html.DisplayNameFor(model => model.Document_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => item.Document_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => item.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Document_type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => item.Document_type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Year)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => item.Year)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Source_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => item.Source_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Volume)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => item.Volume)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => item.Url)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ee)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => item.Ee)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keywords)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => item.Keywords)
+        </dd>
+}
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

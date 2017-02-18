@@ -1,0 +1,34 @@
+﻿@model Dictionary<string, string>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+@foreach (var item in Model)
+{
+        <dt>
+            @Html.DisplayName("Name")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keys)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Document")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Values)
+        </dd>
+}
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

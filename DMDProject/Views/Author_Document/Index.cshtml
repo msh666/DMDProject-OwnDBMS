@@ -1,0 +1,36 @@
+﻿
+@model IEnumerable<DMDProject.Models.Author_DocumentEntity>
+
+<h2>Author_Document</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Author_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Document_id)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Document_id)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { a_d_id = item.A_D_id }  ) |
+                @Html.ActionLink("Details", "Details", new { a_d_id = item.A_D_id } ) |
+                @Html.ActionLink("Delete", "Delete", new { a_d_id = item.A_D_id })
+            </td>
+        </tr>
+    }
+</table>

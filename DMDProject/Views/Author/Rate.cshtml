@@ -1,0 +1,29 @@
+﻿@model IEnumerable<DMDProject.Models.AuthorEntity>
+
+<h2>Authors</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Author_id)
+        </th>
+        <th>
+            @Html.DisplayName("Count of paper")
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Research_area)
+            </td>
+        </tr>
+    }
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
